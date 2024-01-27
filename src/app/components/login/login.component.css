@@ -1,0 +1,48 @@
+.login-panel {
+    min-height: 300px;
+    width: 700px;
+    box-shadow: 20px 20px 80px rgb(0, 0, 0);
+    border-radius: 12px;
+    margin-top: 200px;
+    margin-left: 300px;
+    background-color: #F0ECE2;
+}
+
+.registration-link {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+    font-weight: bold;
+}
+
+.registration-link:hover {
+    font-size: 18px;
+}
+
+.submit-button {
+    border-radius: 10px;
+    width: 100px;
+    height: 40px;
+    background-color: #402A23;
+    border-color: #402A23;
+    margin-left: 30px;
+    color: white;
+    margin-top: 10px;
+}
+
+.submit-button:hover {
+    background-color: #000000;
+    border: #000000;
+}
+
+.input-field {
+    border-radius: 5px;
+    width: 200px;
+    padding: 5px;
+}
+
+.message-field {
+    color: red;
+    font-weight: bold;
+    font-size: 18px;
+}
