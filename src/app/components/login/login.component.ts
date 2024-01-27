@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
       this.message = "Pogresni kredencijali.";
       return;
     }
-    
+
     localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
   }
 }
