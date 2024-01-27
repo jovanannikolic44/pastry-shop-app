@@ -40,3 +40,9 @@
     width: 200px;
     padding: 5px;
 }
+
+.message-field {
+    color: red;
+    font-weight: bold;
+    font-size: 18px;
+}

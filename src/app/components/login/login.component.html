@@ -10,21 +10,24 @@
                         <div class="form-group pt-4">
                             <div>
                                 <span class="fa fa-user p-3"></span>
-                                <input type="text" name="username" placeholder="Korisnicko ime" class="input-field">
+                                <input type="text" name="username" placeholder="Korisnicko ime" class="input-field" [(ngModel)]="username">
                             </div>
                         </div>
                         <div class="form-group pt-2">
                             <div>
                                 <span class="fa fa-lock p-3"></span>
-                                <input type="password" name="password" placeholder="Lozinka" class="input-field">
+                                <input type="password" name="password" placeholder="Lozinka" class="input-field" [(ngModel)]="password">
                             </div>
                         </div>
-                        <button class="submit-button"> Prijavi se </button>
+                        <button class="submit-button" (click)="logIn()"> Prijavi se </button>
                         <div class="pt-4 text-muted"> Nemate nalog? 
                             <a class="registration-link"> Registrujte se </a>
                         </div>
                     </form>
                 </div>
+                <span class="message-field">
+                    {{message}}
+                </span>
             </div>
         </div>
     </div>
