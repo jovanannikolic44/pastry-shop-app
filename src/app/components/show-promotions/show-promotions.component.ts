@@ -21,6 +21,5 @@ export class ShowPromotionsComponent implements OnInit {
     }
 
     this.allPromotions = JSON.parse(allPromotionsString);
-    console.log(this.allPromotions);
   }
 }

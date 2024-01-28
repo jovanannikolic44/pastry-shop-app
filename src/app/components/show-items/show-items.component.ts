@@ -54,6 +54,7 @@ export class ShowItemsComponent implements OnInit {
   }
 
   showAllCakes(): void {
+    this.router.navigate(['/show-cakes']);
   }
 
   showAllCookies(): void {

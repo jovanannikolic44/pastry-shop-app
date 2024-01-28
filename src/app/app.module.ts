@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { ShowItemsComponent } from './components/show-items/show-items.component';
 import { ShowPromotionsComponent } from './components/show-promotions/show-promotions.component';
+import { ShowCakesComponent } from './components/show-cakes/show-cakes.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ShowPromotionsComponent } from './components/show-promotions/show-promo
     LoginComponent,
     RegistrationComponent,
     ShowItemsComponent,
-    ShowPromotionsComponent
+    ShowPromotionsComponent,
+    ShowCakesComponent
   ],
   imports: [
     BrowserModule,
