@@ -1,0 +1,27 @@
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="registration-panel">
+                <div class="registration-header">
+                    <h1> Registracija </h1>
+                </div>
+                <div class="registration-body">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Ime" class="input-field" [(ngModel)]="name">
+                            <input type="text" name="lastName" placeholder="Prezime" class="input-field" [(ngModel)]="lastName">
+                            <input type="text" name="address" placeholder="Adresa" class="input-field" [(ngModel)]="address">
+                            <input type="text" name="phoneNumber" placeholder="Broj telefona" class="input-field" [(ngModel)]="phoneNumber">
+                            <input type="text" name="username" placeholder="Korisnicko ime" class="input-field" [(ngModel)]="username">
+                            <input type="password" name="password" placeholder="Lozinka" class="input-field" [(ngModel)]="password">
+                        </div>
+                        <button class="submit-button" (click)="register()"> Registruj se </button>
+                    </form>
+                </div>
+                <span class="message-field">
+                    {{ message }}
+                </span>
+            </div>
+        </div>
+    </div>
+</main>
