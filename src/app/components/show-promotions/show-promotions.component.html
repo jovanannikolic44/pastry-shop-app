@@ -16,30 +16,12 @@
         </div>
         
         <div class="carousel-inner">
-            <div class="carousel-item active">
+            <div class="carousel-item" *ngFor="let promotion of allPromotions; let i = index" [class.active]="i == 0">
                 <div class="carousel-promotion">
-                    <img src="../../../assets/promotion1.jpeg" class="d-block w-100" alt="Promotion1">
+                    <img src="{{ promotion.imageUrl }}" class="d-block w-100" alt="{{ promotion.name }}">
                     <div class="text-promotion">
-                        <h2> {{ allPromotions[0].name }} </h2>
-                        <p> {{ allPromotions[0].description }} </p>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="carousel-promotion">
-                    <img src="../../../assets/promotion2.png" class="d-block w-100" alt="Promotion2">
-                    <div class="text-promotion">
-                        <h2> {{ allPromotions[1].name }} </h2>
-                        <p> {{ allPromotions[1].description }} </p>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="carousel-promotion">
-                    <img src="../../../assets/promotion3.jpg" class="d-block w-100" alt="Promotion3">
-                    <div class="text-promotion">
-                        <h2> {{ allPromotions[2].name }} </h2>
-                        <p> {{ allPromotions[2].description }} </p>
+                        <h2> {{ promotion.name }} </h2>
+                        <p> {{ promotion.description }} </p>
                     </div>
                 </div>
             </div>
