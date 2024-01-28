@@ -54,15 +54,14 @@ export class ShowItemsComponent implements OnInit {
   }
 
   showAllCakes(): void {
-
   }
 
-  showAllCupcakes(): void {
+  showAllCookies(): void {
 
   }
 
   showAllPromotions(): void {
-
+    this.router.navigate(['/show-promotions']);
   }
 
 }

@@ -7,13 +7,15 @@ import { LoginComponent } from './components/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { ShowItemsComponent } from './components/show-items/show-items.component';
+import { ShowPromotionsComponent } from './components/show-promotions/show-promotions.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegistrationComponent,
-    ShowItemsComponent
+    ShowItemsComponent,
+    ShowPromotionsComponent
   ],
   imports: [
     BrowserModule,
