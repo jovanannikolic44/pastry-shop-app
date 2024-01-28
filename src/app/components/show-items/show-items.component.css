@@ -21,7 +21,7 @@ body {
 
 .show-items-footer {
     background-color: #C7B198;
-    padding: 20px;
+    padding: 10px;
     text-align: center;
     color: #FFFFFF;
     position: fixed;
@@ -33,3 +33,39 @@ body {
     max-width: 600px;
     margin: 0 auto;
 }
+
+.carousel-item {
+    height: 500px;
+    width: 55%;
+    background-color: #F0ECE2;
+    margin-left: 350px;
+}
+
+.carousel-control-prev-icon {
+    filter: invert(100%);
+}
+
+.carousel-control-next-icon {
+    filter: invert(100%);
+}
+
+img {
+    height: 500px;
+}
+
+.show-items-button {
+    border-radius: 10px;
+    width: 200px;
+    height: 40px;
+    background-color: #402A23;
+    border-color: #402A23;
+    margin-left: 30px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.show-items-button:hover {
+    background-color: #000000;
+    border: #000000;
+}
+
