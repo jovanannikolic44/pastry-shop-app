@@ -1,0 +1,52 @@
+<body>
+    <header class="show-cake-header">
+        <nav class="header-nav-bar">
+            <a href="#"> <span class="fa fa-shopping-basket p-3"></span> </a>
+            <a href="#"> <span class="fa fa-bell p-3"> </span> </a>
+            <a href="#"> <span class="fa fa-user p-3"> </span> </a>
+            <a href="show-cakes"> <span class="fa fa-chevron-left p-3"> </span> </a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <table class="item-table">
+            <tbody>
+                <tr>
+                    <td> <img src="{{ itemToShow.imageUrl }}" class="item-image" alt="{{ itemToShow.name }}"> </td>
+                    <td> <h2> {{ itemToShow.name }} </h2> </td>
+                </tr>
+                <tr>
+                    <td> <h5> OPIS: </h5> </td>
+                    <td> {{ itemToShow.description }} </td>
+                </tr>
+                <tr>
+                    <td> <h5> CENA: </h5> </td>
+                    <td> {{ itemToShow.price }} </td>
+                </tr>
+                <tr>
+                    <td> <h5> SASTOJCI: </h5> </td>
+                    <td></td>
+                </tr>
+                <tr *ngFor="let ingredients of itemToShow.composition">
+                    <td></td>
+                    <td> {{ ingredients }} </td>
+                </tr>
+                <tr>
+                    <td> KOMENTARI: </td>
+                    <td></td>
+                </tr>
+                <!-- <tr *ngFor="let itemComment of allComments">
+                    <td>  </td>
+                </tr> -->
+                <tr>
+                    <td> OSTAVI KOMENTAR: </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <input type="text" name="comment" placeholder="Komentar">
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</body>

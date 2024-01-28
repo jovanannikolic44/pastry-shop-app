@@ -49,6 +49,7 @@ body {
     text-decoration: none;
     color: #000000;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .item-link:hover {

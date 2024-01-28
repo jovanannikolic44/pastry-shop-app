@@ -13,7 +13,6 @@ export class ShowCakesComponent implements OnInit {
   currentPage: number = 1;
   itemsPerPage: number = 3;
 
-
   constructor(private router:Router) {}
 
   ngOnInit(): void {
@@ -58,5 +57,10 @@ export class ShowCakesComponent implements OnInit {
     if (this.currentPage < totalPages) {
       this.currentPage++;
     }
+  }
+
+  showDetails(selectedItem: Item): void {
+    localStorage.setItem('itemToShow', JSON.stringify(selectedItem));
+    this.router.navigate(['/item-details']);
   }
 }

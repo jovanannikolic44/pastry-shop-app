@@ -1,0 +1,37 @@
+body {
+    background-image: none;
+    background-color: #F0ECE2;
+}
+
+.show-cake-header {
+    background-color: #C7B198;
+    padding: 10px;
+}
+
+.header-nav-bar {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.header-nav-bar a {
+    color: #FFFFFF;
+    text-decoration: none;
+    margin-left: 15px;
+}
+
+.container {
+    text-align: center;
+}
+
+.item-table {
+    margin-left: 200px;
+}
+
+.item-image {
+    width: 300px;
+    height: 200px;
+}
+
+td {
+    padding: 5px;
+}
