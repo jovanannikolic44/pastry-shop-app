@@ -33,3 +33,16 @@ body {
     max-width: 600px;
     margin: 0 auto;
 }
+
+.pagination .page-link {
+    color: black;
+    cursor: pointer;
+    /* background-color: #F9F5F0; */
+}
+
+.card {
+    /* background-color: #F9F5F0; */
+    width: 80%;
+    margin-top: 100px;
+    margin-left: 150px;
+}

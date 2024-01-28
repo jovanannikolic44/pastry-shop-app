@@ -57,7 +57,8 @@ body {
 .carousel-promotion img {
     height: 500px;
     flex: 1;
-    margin-right: 40px;
+    margin-right: 60px;
+    box-shadow: 20px 20px 80px rgb(64, 64, 64, 0.4);
 }
 
 .carousel-text {

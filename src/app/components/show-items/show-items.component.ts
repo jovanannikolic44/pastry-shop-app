@@ -54,11 +54,13 @@ export class ShowItemsComponent implements OnInit {
   }
 
   showAllCakes(): void {
+    localStorage.setItem('cookiesOrCakes', "cakes");
     this.router.navigate(['/show-cakes']);
   }
 
   showAllCookies(): void {
-
+    localStorage.setItem('cookiesOrCakes', "cookies");
+    this.router.navigate(['/show-cakes']);
   }
 
   showAllPromotions(): void {
