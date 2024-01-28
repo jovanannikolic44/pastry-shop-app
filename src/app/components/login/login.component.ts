@@ -15,12 +15,16 @@ export class LoginComponent implements OnInit {
   constructor(private router:Router) {}
 
   ngOnInit(): void {
-    let users: User[] = [
-      {name: "Ana", lastName: "Marinkovic", phoneNumber:"0678899334", address: "Adresa 1", username: "ana", password: "ana123", type: "kupac"},
-      {name: "Milos", lastName: "Markovic", phoneNumber:"0678899339", address: "Adresa 2", username: "milos", password: "milos123", type: "kupac"},
-      {name: "Nenad", lastName: "Novakovic", phoneNumber:"0678899332", address: "Adresa 3", username: "nenad", password: "nenad123", type: "zaposleni"}
-    ];
-    localStorage.setItem('users', JSON.stringify(users));
+    let allUsersString = localStorage.getItem('users');
+    
+    if(allUsersString == null) {
+      let users: User[] = [
+        {name: "Ana", lastName: "Marinkovic", phoneNumber:"0678899334", address: "Adresa 1", username: "ana", password: "ana123", type: "kupac"},
+        {name: "Milos", lastName: "Markovic", phoneNumber:"0678899339", address: "Adresa 2", username: "milos", password: "milos123", type: "kupac"},
+        {name: "Nenad", lastName: "Novakovic", phoneNumber:"0678899332", address: "Adresa 3", username: "nenad", password: "nenad123", type: "zaposleni"}
+      ];
+      localStorage.setItem('users', JSON.stringify(users));
+    }
   }
 
   logIn(): void {

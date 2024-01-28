@@ -21,7 +21,10 @@ export class RegistrationComponent implements OnInit {
   ngOnInit(): void {}
 
   register(): void {
-    // provera da su sva polja popunjena -> da li moraju da budu sva obavezna? Vrvt ne
+    if(this.username == "" || this.password == "" || this.username == null || this.password == null) {
+      this.message = "Korisnicko ime i lozinka su obavezna polja.";
+      return;
+    }
 
     let allUsersString = localStorage.getItem('users');
     if(allUsersString == null) {
@@ -48,7 +51,6 @@ export class RegistrationComponent implements OnInit {
 
     allUsers.push(newUser)
     localStorage.setItem('users', JSON.stringify(allUsers));
+    this.router.navigate(['']);
   }
 }
-
-// Videti za tip

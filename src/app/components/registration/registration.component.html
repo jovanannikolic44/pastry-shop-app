@@ -12,10 +12,13 @@
                             <input type="text" name="lastName" placeholder="Prezime" class="input-field" [(ngModel)]="lastName">
                             <input type="text" name="address" placeholder="Adresa" class="input-field" [(ngModel)]="address">
                             <input type="text" name="phoneNumber" placeholder="Broj telefona" class="input-field" [(ngModel)]="phoneNumber">
-                            <input type="text" name="username" placeholder="Korisnicko ime" class="input-field" [(ngModel)]="username">
-                            <input type="password" name="password" placeholder="Lozinka" class="input-field" [(ngModel)]="password">
+                            <input type="text" name="username" placeholder="Korisnicko ime" class="input-field" required [(ngModel)]="username">
+                            <input type="password" name="password" placeholder="Lozinka" class="input-field" required [(ngModel)]="password">
                         </div>
                         <button class="submit-button" (click)="register()"> Registruj se </button>
+                        <div class="pt-3">
+                            <a class = "back-link" href=""> Nazad na prijavu </a>
+                        </div>
                     </form>
                 </div>
                 <span class="message-field">
