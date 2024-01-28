@@ -1,0 +1,35 @@
+body {
+    background-image: none;
+    background-color: #F0ECE2;
+}
+
+.show-items-header {
+    background-color: #C7B198;
+    padding: 10px;
+}
+
+.header-nav-bar {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.header-nav-bar a {
+    color: #FFFFFF;
+    text-decoration: none;
+    margin-left: 15px;
+}
+
+.show-items-footer {
+    background-color: #C7B198;
+    padding: 20px;
+    text-align: center;
+    color: #FFFFFF;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.contact-info {
+    max-width: 600px;
+    margin: 0 auto;
+}

@@ -57,5 +57,6 @@ export class LoginComponent implements OnInit {
     }
 
     localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
+    this.router.navigate(['/show-items']);
   }
 }
