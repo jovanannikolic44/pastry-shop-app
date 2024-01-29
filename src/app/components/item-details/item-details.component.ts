@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { Item } from '../../models/Item';
 import { Comments } from '../../models/Comments';
+import { Basket } from '../../models/Basket';
 
 @Component({
   selector: 'app-item-details',
@@ -14,6 +15,7 @@ export class ItemDetailsComponent implements OnInit {
   itemToShow!: Item;
   inputComment: string = "";
   allComments: Comments[] = [];
+  orderQuantity: number = 0;
 
   constructor() {}
 
@@ -54,6 +56,39 @@ export class ItemDetailsComponent implements OnInit {
   }
 
   orderItem(): void {
-    
+    let loggedUserString = localStorage.getItem("loggedInUser");
+    let nextId = 1;
+
+    if(loggedUserString != null) {
+      let loggedUser = JSON.parse(loggedUserString);
+      let allPurchasesString = localStorage.getItem("purchases_" + loggedUser.username);
+
+      if(allPurchasesString == null) {
+        let newPurchase: Basket = {
+          id: nextId,
+          item_name: this.itemToShow.name,
+          quantity: this.orderQuantity,
+          price: parseInt(this.itemToShow.price),
+          total_price: this.orderQuantity * parseInt(this.itemToShow.price)
+        };
+        
+        localStorage.setItem("purchases_" + loggedUser.username, JSON.stringify(newPurchase));
+      }
+      else {
+        let allPurchases = JSON.parse(allPurchasesString);
+        nextId = allPurchases[allPurchases.length - 1].id + 1;
+
+        let newPurchase: Basket = {
+          id: nextId,
+          item_name: this.itemToShow.name,
+          quantity: this.orderQuantity,
+          price: parseInt(this.itemToShow.price),
+          total_price: this.orderQuantity * parseInt(this.itemToShow.price)
+        };
+        
+        allPurchases.push(newPurchase)
+        localStorage.setItem("purchases_" + loggedUser.username, JSON.stringify(allPurchases));
+      }
+    }
   }
 }

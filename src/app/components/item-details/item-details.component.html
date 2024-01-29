@@ -75,7 +75,7 @@
                                 <td> <h5> KOLICINA: </h5> </td>
                             </tr>
                             <tr>
-                                <input type="text" class="order-input">
+                                <input type="text" name="order" class="order-input" [(ngModel)]="orderQuantity">
                             </tr>
                             <tr>
                                 <button type="submit" class="submit-button" (click)="orderItem()"> Naruci </button>
