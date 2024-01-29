@@ -35,34 +35,56 @@
             </tbody>
         </table>
         <hr/>
-        <form>
-            <table class="item-table-comments">
-                <tbody>
-                    <tr>
-                        <td> <h5> KOMENTARI: </h5> </td>
-                    </tr>
-                    <tr *ngIf="allComments.length == 0">
-                        <td class="no-comments"> NEMA KOMENTARA </td>
-                    </tr>
-                    <tr *ngIf="allComments.length > 0">
-                        <div *ngFor="let itemComment of allComments">
-                            <td> <h5> {{ itemComment.username }}: </h5> </td>
-                            <td> {{ itemComment.comment }} </td>
-                        </div>
-                    </tr>
-                    <tr>
-                        <td><h5> OSTAVITE KOMENTAR: </h5></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <textarea placeholder="Komentar" name="comment" rows = "5" cols = "60" [(ngModel)]="inputComment"></textarea>
-                    </tr>
-                    <tr>
-                        <button type="submit" class="submit-button" (click)="saveComment()"> Sacuvaj </button>
-                    </tr>
-                </tbody>
-            </table>
-        </form>
+
+        <div class="row">
+            <div class="col-md-6">
+                <form>
+                    <table class="item-table-comments">
+                        <tbody>
+                            <tr>
+                                <td> <h5> KOMENTARI: </h5> </td>
+                            </tr>
+                            <tr *ngIf="allComments.length == 0">
+                                <td class="no-comments"> NEMA KOMENTARA </td>
+                            </tr>
+                            <tr *ngIf="allComments.length > 0">
+                                <div *ngFor="let itemComment of allComments">
+                                    <td> <h5> {{ itemComment.username }}: </h5> </td>
+                                    <td> {{ itemComment.comment }} </td>
+                                </div>
+                            </tr>
+                            <tr>
+                                <td><h5> OSTAVITE KOMENTAR: </h5></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <textarea placeholder="Komentar" name="comment" class="comment-textarea" rows = "5" cols = "60" [(ngModel)]="inputComment"></textarea>
+                            </tr>
+                            <tr>
+                                <button type="submit" class="submit-button" (click)="saveComment()"> Sacuvaj </button>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <form>
+                    <table class="item-table-comments">
+                        <tbody>
+                            <tr>
+                                <td> <h5> KOLICINA: </h5> </td>
+                            </tr>
+                            <tr>
+                                <input type="text" class="order-input">
+                            </tr>
+                            <tr>
+                                <button type="submit" class="submit-button" (click)="orderItem()"> Naruci </button>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </div>
     </div>
 
     <footer class="show-item-footer">

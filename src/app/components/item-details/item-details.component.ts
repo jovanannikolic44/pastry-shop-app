@@ -52,4 +52,8 @@ export class ItemDetailsComponent implements OnInit {
       localStorage.setItem(this.itemToShow.id, JSON.stringify(this.allComments));
     }
   }
+
+  orderItem(): void {
+    
+  }
 }
