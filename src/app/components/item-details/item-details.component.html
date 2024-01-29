@@ -31,22 +31,44 @@
                     <td></td>
                     <td> {{ ingredients }} </td>
                 </tr>
-                <tr>
-                    <td> KOMENTARI: </td>
-                    <td></td>
-                </tr>
-                <!-- <tr *ngFor="let itemComment of allComments">
-                    <td>  </td>
-                </tr> -->
-                <tr>
-                    <td> OSTAVI KOMENTAR: </td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <input type="text" name="comment" placeholder="Komentar">
-                </tr>
             </tbody>
         </table>
-
+        <hr/>
+        <form>
+            <table class="item-table-comments">
+                <tbody>
+                    <tr>
+                        <td> <h5> KOMENTARI: </h5> </td>
+                    </tr>
+                    <tr *ngIf="allComments.length == 0">
+                        <td class="no-comments"> NEMA KOMENTARA </td>
+                    </tr>
+                    <tr *ngIf="allComments.length > 0">
+                        <div *ngFor="let itemComment of allComments">
+                            <td> <h5> {{ itemComment.username }}: </h5> </td>
+                            <td> {{ itemComment.comment }} </td>
+                        </div>
+                    </tr>
+                    <tr>
+                        <td><h5> OSTAVITE KOMENTAR: </h5></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <textarea placeholder="Komentar" name="comment" rows = "5" cols = "60" [(ngModel)]="inputComment"></textarea>
+                    </tr>
+                    <tr>
+                        <button type="submit" class="submit-button" (click)="saveComment()"> Sacuvaj </button>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
     </div>
+
+    <footer class="show-promotions-footer">
+        <div class="contact-info">
+            <p> TELEFON: 011/223-233 </p>
+            <p> E-MAIL: slatki_zalogaji&#64;gmail.com </p>
+            <p> BEOGRAD </p>
+        </div>
+    </footer>
 </body>

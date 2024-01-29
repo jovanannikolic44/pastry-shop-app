@@ -19,6 +19,21 @@ body {
     margin-left: 15px;
 }
 
+.show-promotions-footer {
+    background-color: #C7B198;
+    padding: 10px;
+    text-align: center;
+    color: #FFFFFF;
+    bottom: 0;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.contact-info {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
 .container {
     text-align: center;
 }
@@ -34,4 +49,31 @@ body {
 
 td {
     padding: 5px;
+}
+
+hr {
+    border: 3px solid #402A23;
+}
+
+.item-table-comments {
+    margin-left: 120px;
+}
+
+.no-comments {
+    font-style: italic;
+}
+
+.submit-button {
+    border-radius: 10px;
+    width: 100px;
+    height: 40px;
+    background-color: #402A23;
+    border-color: #402A23;
+    color: white;
+    margin-top: 10px;
+}
+
+.submit-button:hover {
+    background-color: #000000;
+    border: #000000;
 }
