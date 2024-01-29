@@ -86,3 +86,8 @@ hr {
     border: 2px solid #CCCCCC;
     text-align: center;
 }
+
+.message-field {
+    color: black;
+    font-weight: bold;
+}

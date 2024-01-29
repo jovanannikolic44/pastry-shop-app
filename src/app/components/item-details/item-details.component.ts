@@ -16,6 +16,7 @@ export class ItemDetailsComponent implements OnInit {
   inputComment: string = "";
   allComments: Comments[] = [];
   orderQuantity: number = 0;
+  message: string = "";
 
   constructor() {}
 
@@ -72,7 +73,7 @@ export class ItemDetailsComponent implements OnInit {
           total_price: this.orderQuantity * parseInt(this.itemToShow.price)
         };
         
-        localStorage.setItem("purchases_" + loggedUser.username, JSON.stringify(newPurchase));
+        localStorage.setItem("purchases_" + loggedUser.username, JSON.stringify([newPurchase]));
       }
       else {
         let allPurchases = JSON.parse(allPurchasesString);
@@ -89,6 +90,8 @@ export class ItemDetailsComponent implements OnInit {
         allPurchases.push(newPurchase)
         localStorage.setItem("purchases_" + loggedUser.username, JSON.stringify(allPurchases));
       }
+      this.orderQuantity = 0;
+      this.message = "Narudzbina je evidentirana. Mozete je naci u korpi.";
     }
   }
 }

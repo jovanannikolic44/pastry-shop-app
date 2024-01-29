@@ -75,10 +75,13 @@
                                 <td> <h5> KOLICINA: </h5> </td>
                             </tr>
                             <tr>
-                                <input type="text" name="order" class="order-input" [(ngModel)]="orderQuantity">
+                                <td> <input type="text" name="order" class="order-input" [(ngModel)]="orderQuantity"> </td>
                             </tr>
                             <tr>
-                                <button type="submit" class="submit-button" (click)="orderItem()"> Naruci </button>
+                                <td> <button type="submit" class="submit-button" (click)="orderItem()"> Naruci </button> </td>
+                            </tr>
+                            <tr>
+                                <td> <span class="message-field"> {{ message }} </span> </td>
                             </tr>
                         </tbody>
                     </table>
