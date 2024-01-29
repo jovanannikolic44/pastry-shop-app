@@ -15,7 +15,7 @@ export class ItemDetailsComponent implements OnInit {
   inputComment: string = "";
   allComments: Comments[] = [];
 
-  constructor(private router:Router) {}
+  constructor() {}
 
   ngOnInit(): void {
     let itemToShowString = localStorage.getItem('itemToShow');

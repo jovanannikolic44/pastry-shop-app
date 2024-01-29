@@ -3,7 +3,7 @@ body {
     background-color: #F0ECE2;
 }
 
-.show-item-header {
+.show-user-profile-header {
     background-color: #C7B198;
     padding: 10px;
 }
@@ -19,14 +19,14 @@ body {
     margin-left: 15px;
 }
 
-.show-item-footer {
+.show-user-profile-footer {
     background-color: #C7B198;
     padding: 10px;
     text-align: center;
     color: #FFFFFF;
+    position: fixed;
     bottom: 0;
     width: 100%;
-    margin-top: 50px;
 }
 
 .contact-info {
@@ -34,41 +34,28 @@ body {
     margin: 0 auto;
 }
 
-.container {
-    text-align: center;
+.user-profile-panel {
+    min-height: 450px;
+    width: 700px;
+    box-shadow: 20px 20px 80px rgb(0, 0, 0);
+    border-radius: 12px;
+    margin-top: 20px;
+    margin-left: 300px;
+    background-color: #F0ECE2;
 }
 
-.item-table {
-    margin-left: 200px;
-}
-
-.item-image {
-    width: 300px;
-    height: 200px;
-}
-
-td {
-    padding: 5px;
-}
-
-hr {
-    border: 3px solid #402A23;
-}
-
-.item-table-comments {
-    margin-left: 120px;
-}
-
-.no-comments {
-    font-style: italic;
+.user-profile-header {
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .submit-button {
     border-radius: 10px;
-    width: 100px;
+    width: 150px;
     height: 40px;
     background-color: #402A23;
     border-color: #402A23;
+    margin-left: 30px;
     color: white;
     margin-top: 10px;
 }
@@ -76,4 +63,17 @@ hr {
 .submit-button:hover {
     background-color: #000000;
     border: #000000;
+}
+
+.input-field {
+    border-radius: 5px;
+    width: 400px;
+    padding: 5px;
+    margin-bottom: 15px;
+}
+
+.message-field {
+    color: red;
+    font-weight: bold;
+    font-size: 18px;
 }

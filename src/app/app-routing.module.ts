@@ -6,6 +6,7 @@ import { ShowItemsComponent } from './components/show-items/show-items.component
 import { ShowPromotionsComponent } from './components/show-promotions/show-promotions.component';
 import { ShowCakesComponent } from './components/show-cakes/show-cakes.component';
 import { ItemDetailsComponent } from './components/item-details/item-details.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path: 'show-items', component: ShowItemsComponent},
   {path: 'show-promotions', component: ShowPromotionsComponent},
   {path: 'show-cakes', component: ShowCakesComponent},
-  {path: 'item-details', component: ItemDetailsComponent}
+  {path: 'item-details', component: ItemDetailsComponent},
+  {path: 'user-profile', component: UserProfileComponent}
 ];
 
 @NgModule({

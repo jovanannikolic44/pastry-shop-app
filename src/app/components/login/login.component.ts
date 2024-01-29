@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
     let loggedInUser = null;
 
     for(let i = 0; i < allUsers.length; i++) {
-      if(allUsers[i].username == this.username) {
+      if(allUsers[i].username == this.username && allUsers[i].password == this.password) {
         loggedInUser = allUsers[i];
         this.message = "";
         break;

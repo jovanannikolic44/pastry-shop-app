@@ -10,6 +10,7 @@ import { ShowItemsComponent } from './components/show-items/show-items.component
 import { ShowPromotionsComponent } from './components/show-promotions/show-promotions.component';
 import { ShowCakesComponent } from './components/show-cakes/show-cakes.component';
 import { ItemDetailsComponent } from './components/item-details/item-details.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ItemDetailsComponent } from './components/item-details/item-details.com
     ShowItemsComponent,
     ShowPromotionsComponent,
     ShowCakesComponent,
-    ItemDetailsComponent
+    ItemDetailsComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
