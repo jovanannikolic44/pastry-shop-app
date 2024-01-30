@@ -1,0 +1,63 @@
+<body>
+    <header class="requests-header">
+        <nav class="header-nav-bar">
+            <a href="#"> <span class="fa fa-plus p-3"></span> </a>
+            <a href="user-profile"> <span class="fa fa-user p-3"> </span> </a>
+            <a href=""> <span class="fa fa-sign-out p-3"></span> </a>
+        </nav>
+    </header>
+
+    <div class="card">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col"> Kupac </th>
+                    <th scope="col"> Narudzbina </th>
+                    <th scope="col"> Ukupno za uplatu </th>
+                    <th scope="col"> - </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngIf="allRequests.length == 0">
+                    <td colspan="4"> NEMA ZAHTEVA </td>
+                </tr>
+                <tr *ngFor="let request of showRequestsOnThePage">
+                    <td> {{ request.username }} </td>
+                    <td> {{ request.items }} </td>
+                    <td> {{ request.totalPrice }} </td>
+                    <td> 
+                        <button class="button-accept-decline" (click)="accept()"> <span class="fa fa-check"> </span> </button>
+                        &nbsp;
+                        <button class="button-accept-decline" (click)="decline()"> <span class="fa fa-times"> </span> </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div>
+            <ul class="pagination justify-content-center">
+                <li class="page-item">
+                    <a class="page-link" (click)="previousPage()" [class.disabled]="currentPage == 1" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="page-item" *ngFor="let page of getAllPages()">
+                    <a class="page-link" (click)="goToPage(page)">{{ page }}</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" (click)="nextPage()" [class.disabled]="currentPage * itemsPerPage >= allRequests.length" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <footer class="requests-footer">
+        <div class="contact-info">
+            <p> TELEFON: 011/223-233 </p>
+            <p> E-MAIL: slatki_zalogaji&#64;gmail.com </p>
+            <p> BEOGRAD </p>
+        </div>
+    </footer>
+</body>

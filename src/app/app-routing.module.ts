@@ -8,6 +8,7 @@ import { ShowCakesComponent } from './components/show-cakes/show-cakes.component
 import { ItemDetailsComponent } from './components/item-details/item-details.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { ShowBasketComponent } from './components/show-basket/show-basket.component';
+import { StaffRequestsComponent } from './components/staff-requests/staff-requests.component';
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
@@ -17,7 +18,8 @@ const routes: Routes = [
   {path: 'show-cakes', component: ShowCakesComponent},
   {path: 'item-details', component: ItemDetailsComponent},
   {path: 'user-profile', component: UserProfileComponent},
-  {path: 'show-basket', component: ShowBasketComponent}
+  {path: 'show-basket', component: ShowBasketComponent},
+  {path: 'staff-requests', component: StaffRequestsComponent}
 ];
 
 @NgModule({

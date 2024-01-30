@@ -70,19 +70,27 @@ export class ShowBasketComponent implements OnInit {
   }
 
   confirmOrder(): void {
-    // reset svega -> notifikacija nakon odobrenja
-    // niz svih porudzbina -> allOrders
     let loggedUserString = localStorage.getItem("loggedInUser");
     if(loggedUserString != null) {
       let loggedUser = JSON.parse(loggedUserString);
       let allRequestsString = localStorage.getItem("waitingRequests");
       let nextId = 1;
 
+      // convert allOrders to string, allOrders je niz basketa
+      let ordersString = "";
+      for(let i = 0; i < this.allOrders.length; i++) {
+        if(i == this.allOrders.length - 1) {
+          ordersString = ordersString + this.allOrders[i].itemName;
+        }
+        ordersString = ordersString + this.allOrders[i].itemName + "[" + this.allOrders[i].quantity + "], ";
+      }
+
       if(allRequestsString == null) {
         let newOrderRequest: OrderRequest = {
           id: nextId,
           username: loggedUser.username,
-          items: this.allOrders
+          items: ordersString,
+          totalPrice: this.totalItemsPrice
         };
 
         localStorage.setItem("waitingRequests", JSON.stringify([newOrderRequest]));
@@ -94,7 +102,8 @@ export class ShowBasketComponent implements OnInit {
         let newOrderRequest: OrderRequest = {
           id: nextId,
           username: loggedUser.username,
-          items: this.allOrders
+          items: ordersString,
+          totalPrice: this.totalItemsPrice
         };
         
         allRequests.push(newOrderRequest)
@@ -103,6 +112,7 @@ export class ShowBasketComponent implements OnInit {
 
       this.allOrders = [];
       this.totalItemsPrice = 0;
+      localStorage.removeItem("orders_" + loggedUser.username);
     }
   }
 }

@@ -57,6 +57,12 @@ export class LoginComponent implements OnInit {
     }
 
     localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
-    this.router.navigate(['/show-items']);
+
+    if(loggedInUser.type == "kupac") {
+      this.router.navigate(['/show-items']);
+    }
+    else if(loggedInUser.type == "zaposleni") {
+      this.router.navigate(['/staff-requests']);
+    }
   }
 }

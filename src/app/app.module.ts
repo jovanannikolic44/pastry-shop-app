@@ -12,6 +12,7 @@ import { ShowCakesComponent } from './components/show-cakes/show-cakes.component
 import { ItemDetailsComponent } from './components/item-details/item-details.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { ShowBasketComponent } from './components/show-basket/show-basket.component';
+import { StaffRequestsComponent } from './components/staff-requests/staff-requests.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ShowBasketComponent } from './components/show-basket/show-basket.compon
     ShowCakesComponent,
     ItemDetailsComponent,
     UserProfileComponent,
-    ShowBasketComponent
+    ShowBasketComponent,
+    StaffRequestsComponent
   ],
   imports: [
     BrowserModule,

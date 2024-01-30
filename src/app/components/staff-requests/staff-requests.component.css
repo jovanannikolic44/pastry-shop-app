@@ -1,0 +1,60 @@
+body {
+    background-image: none;
+    background-color: #F0ECE2;
+}
+
+.requests-header {
+    background-color: #C7B198;
+    padding: 10px;
+}
+
+.header-nav-bar {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.header-nav-bar a {
+    color: #FFFFFF;
+    text-decoration: none;
+    margin-left: 15px;
+}
+
+.requests-footer {
+    background-color: #C7B198;
+    padding: 10px;
+    text-align: center;
+    color: #FFFFFF;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.contact-info {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.card {
+    width: 80%;
+    margin-top: 70px;
+    margin-left: 150px;
+}
+
+.pagination .page-link {
+    color: black;
+    cursor: pointer;
+}
+
+.button-accept-decline {
+    height: 30px;
+    width: 80px;
+    border-radius: 10px;
+    background-color: #402A23;
+    border-color: #402A23;
+    color: white;
+}
+
+.button-accept-decline:hover {
+    background-color: #000000;
+    border: #000000;
+}
