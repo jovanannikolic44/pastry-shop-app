@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { Router } from '@angular/router';
 import { Item } from '../../models/Item';
 import { Comments } from '../../models/Comments';
 import { Basket } from '../../models/Basket';
@@ -11,6 +10,10 @@ import { Basket } from '../../models/Basket';
   encapsulation: ViewEncapsulation.None
 })
 export class ItemDetailsComponent implements OnInit {
+  private static staticCommentId: number = 1;
+  private commentId: number = ItemDetailsComponent.staticCommentId++;
+  private static staticOrderId: number = 1;
+  private orderId: number = ItemDetailsComponent.staticOrderId++;
 
   itemToShow!: Item;
   inputComment: string = "";
@@ -36,17 +39,9 @@ export class ItemDetailsComponent implements OnInit {
     let loggedUserString = localStorage.getItem("loggedInUser");
     if(loggedUserString != null) {
       let loggedUser = JSON.parse(loggedUserString);
-      let nextId = "";
-
-      if(this.allComments.length > 0) {
-        nextId = (parseInt(this.allComments[this.allComments.length - 1].id) + 1).toString();
-      }
-      else {
-        nextId = "1";
-      }
       
       let newComment: Comments = {
-        id: nextId,
+        id: this.commentId.toString(),
         username: loggedUser.username,
         comment: this.inputComment
       };
@@ -63,8 +58,6 @@ export class ItemDetailsComponent implements OnInit {
     }
 
     let loggedUserString = localStorage.getItem("loggedInUser");
-    let nextId = 1;
-
     if(loggedUserString != null) {
       let loggedUser = JSON.parse(loggedUserString);
       
@@ -72,7 +65,7 @@ export class ItemDetailsComponent implements OnInit {
 
       if(allOrdersString == null) {
         let newPurchase: Basket = {
-          id: nextId,
+          id: this.orderId,
           itemName: this.itemToShow.name,
           quantity: this.orderQuantity,
           price: parseInt(this.itemToShow.price),
@@ -83,10 +76,8 @@ export class ItemDetailsComponent implements OnInit {
       }
       else {
         let allOrders = JSON.parse(allOrdersString);
-        nextId = allOrders[allOrders.length - 1].id + 1;
-
         let newPurchase: Basket = {
-          id: nextId,
+          id: this.orderId,
           itemName: this.itemToShow.name,
           quantity: this.orderQuantity,
           price: parseInt(this.itemToShow.price),
