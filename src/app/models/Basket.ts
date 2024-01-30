@@ -1,7 +1,7 @@
 export interface Basket {
     id: number;
-    item_name: string;
+    itemName: string;
     quantity: number;
     price: number;
-    total_price: number;
+    totalPrice: number;
 }

@@ -15,7 +15,7 @@ export class ItemDetailsComponent implements OnInit {
   itemToShow!: Item;
   inputComment: string = "";
   allComments: Comments[] = [];
-  orderQuantity: number = 0;
+  orderQuantity: number = 1;
   message: string = "";
 
   constructor() {}
@@ -57,20 +57,26 @@ export class ItemDetailsComponent implements OnInit {
   }
 
   orderItem(): void {
+    if(this.orderQuantity < 1 || this.orderQuantity > 20) {
+      this.message = "Narudzbina sa zadatom kolicinom nije moguca.";
+      return;
+    }
+
     let loggedUserString = localStorage.getItem("loggedInUser");
     let nextId = 1;
 
     if(loggedUserString != null) {
       let loggedUser = JSON.parse(loggedUserString);
+      
       let allPurchasesString = localStorage.getItem("purchases_" + loggedUser.username);
 
       if(allPurchasesString == null) {
         let newPurchase: Basket = {
           id: nextId,
-          item_name: this.itemToShow.name,
+          itemName: this.itemToShow.name,
           quantity: this.orderQuantity,
           price: parseInt(this.itemToShow.price),
-          total_price: this.orderQuantity * parseInt(this.itemToShow.price)
+          totalPrice: this.orderQuantity * parseInt(this.itemToShow.price)
         };
         
         localStorage.setItem("purchases_" + loggedUser.username, JSON.stringify([newPurchase]));
@@ -81,16 +87,16 @@ export class ItemDetailsComponent implements OnInit {
 
         let newPurchase: Basket = {
           id: nextId,
-          item_name: this.itemToShow.name,
+          itemName: this.itemToShow.name,
           quantity: this.orderQuantity,
           price: parseInt(this.itemToShow.price),
-          total_price: this.orderQuantity * parseInt(this.itemToShow.price)
+          totalPrice: this.orderQuantity * parseInt(this.itemToShow.price)
         };
         
         allPurchases.push(newPurchase)
         localStorage.setItem("purchases_" + loggedUser.username, JSON.stringify(allPurchases));
       }
-      this.orderQuantity = 0;
+      this.orderQuantity = 1;
       this.message = "Narudzbina je evidentirana. Mozete je naci u korpi.";
     }
   }

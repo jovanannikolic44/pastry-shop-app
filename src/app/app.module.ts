@@ -11,6 +11,7 @@ import { ShowPromotionsComponent } from './components/show-promotions/show-promo
 import { ShowCakesComponent } from './components/show-cakes/show-cakes.component';
 import { ItemDetailsComponent } from './components/item-details/item-details.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { ShowBasketComponent } from './components/show-basket/show-basket.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
     ShowPromotionsComponent,
     ShowCakesComponent,
     ItemDetailsComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    ShowBasketComponent
   ],
   imports: [
     BrowserModule,
