@@ -9,7 +9,6 @@ import { OrderRequest } from '../../models/OrderRequest';
 })
 export class StaffRequestsComponent implements OnInit {
   allRequests: OrderRequest[] = [];
-  allOrdersString: string[] = [];
   currentPage: number = 1;
   itemsPerPage: number = 3;
 
@@ -57,11 +56,21 @@ export class StaffRequestsComponent implements OnInit {
     }
   }
 
-  accept(): void {
-
+  accept(request: OrderRequest): void {
+    request.acceptance = "accepted";
+    let indexToRemove = this.allRequests.indexOf(request);
+    if(indexToRemove > -1) {
+      this.allRequests.splice(indexToRemove, 1);
+      localStorage.setItem("waitingRequests", JSON.stringify(this.allRequests));
+    }
   }
 
-  decline(): void {
-    
+  decline(request: OrderRequest): void {
+    request.acceptance = "declined";
+    let indexToRemove = this.allRequests.indexOf(request);
+    if(indexToRemove > -1) {
+      this.allRequests.splice(indexToRemove, 1);
+      localStorage.setItem("waitingRequests", JSON.stringify(this.allRequests));
+    }
   }
 }

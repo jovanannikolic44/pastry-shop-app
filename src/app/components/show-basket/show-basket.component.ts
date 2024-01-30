@@ -90,7 +90,8 @@ export class ShowBasketComponent implements OnInit {
           id: nextId,
           username: loggedUser.username,
           items: ordersString,
-          totalPrice: this.totalItemsPrice
+          totalPrice: this.totalItemsPrice,
+          acceptance: "requested"
         };
 
         localStorage.setItem("waitingRequests", JSON.stringify([newOrderRequest]));
@@ -103,7 +104,8 @@ export class ShowBasketComponent implements OnInit {
           id: nextId,
           username: loggedUser.username,
           items: ordersString,
-          totalPrice: this.totalItemsPrice
+          totalPrice: this.totalItemsPrice,
+          acceptance: "requested"
         };
         
         allRequests.push(newOrderRequest)

@@ -4,5 +4,6 @@ export interface OrderRequest {
     id: number,
     username: string,
     items: string,
-    totalPrice: number
+    totalPrice: number,
+    acceptance: string
 }
