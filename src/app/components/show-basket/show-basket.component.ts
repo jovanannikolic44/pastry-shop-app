@@ -9,8 +9,7 @@ import { OrderRequest } from '../../models/OrderRequest';
   encapsulation: ViewEncapsulation.None
 })
 export class ShowBasketComponent implements OnInit {
-  private static staticRequestId: number = 1;
-  private requestId: number = ShowBasketComponent.staticRequestId++;
+  requestId: number = 1;
 
   allOrders: Basket[] = [];
   totalItemsPrice: number = 0;
@@ -30,6 +29,9 @@ export class ShowBasketComponent implements OnInit {
         for(let i = 0; i < this.allOrders.length; i++) {
           this.totalItemsPrice += this.allOrders[i].totalPrice;
         }
+
+        let requestIdString = localStorage.getItem('requestId');
+        this.requestId = requestIdString ? parseInt(requestIdString) : 1;
       }
     }
   }
@@ -95,6 +97,9 @@ export class ShowBasketComponent implements OnInit {
           acceptance: "requested"
         };
 
+        this.requestId++;
+        localStorage.setItem('requestId', this.requestId.toString());
+
         localStorage.setItem("waitingRequests", JSON.stringify([newOrderRequest]));
       }
       else {
@@ -105,6 +110,9 @@ export class ShowBasketComponent implements OnInit {
           totalPrice: this.totalItemsPrice,
           acceptance: "requested"
         };
+
+        this.requestId++;
+        localStorage.setItem('requestId', this.requestId.toString());
         
         allRequests.push(newOrderRequest)
         localStorage.setItem("waitingRequests", JSON.stringify(allRequests));

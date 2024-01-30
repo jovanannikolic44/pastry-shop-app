@@ -10,10 +10,8 @@ import { Basket } from '../../models/Basket';
   encapsulation: ViewEncapsulation.None
 })
 export class ItemDetailsComponent implements OnInit {
-  private static staticCommentId: number = 1;
-  private commentId: number = ItemDetailsComponent.staticCommentId++;
-  private static staticOrderId: number = 1;
-  private orderId: number = ItemDetailsComponent.staticOrderId++;
+  commentId: number = 1;
+  orderId: number = 1;
 
   itemToShow!: Item;
   inputComment: string = "";
@@ -30,6 +28,11 @@ export class ItemDetailsComponent implements OnInit {
       
       let allCommentsString = localStorage.getItem(this.itemToShow.id);
       this.allComments = allCommentsString? JSON.parse(allCommentsString) : [];
+
+      let commentIdString = localStorage.getItem('commentId');
+      this.commentId = commentIdString ? parseInt(commentIdString) : 1;
+      let orderIdString = localStorage.getItem('orderId');
+      this.orderId = orderIdString ? parseInt(orderIdString) : 1;
     }
   }
 
@@ -43,6 +46,9 @@ export class ItemDetailsComponent implements OnInit {
         username: loggedUser.username,
         comment: this.inputComment
       };
+
+      this.commentId++;
+      localStorage.setItem('commentId', this.commentId.toString());
 
       this.allComments.push(newComment);
       localStorage.setItem(this.itemToShow.id, JSON.stringify(this.allComments));
@@ -70,7 +76,10 @@ export class ItemDetailsComponent implements OnInit {
           price: parseInt(this.itemToShow.price),
           totalPrice: this.orderQuantity * parseInt(this.itemToShow.price)
         };
-        
+
+        this.orderId++;
+        localStorage.setItem('orderId', this.orderId.toString());
+
         localStorage.setItem("orders_" + loggedUser.username, JSON.stringify([newPurchase]));
       }
       else {
@@ -81,6 +90,9 @@ export class ItemDetailsComponent implements OnInit {
           price: parseInt(this.itemToShow.price),
           totalPrice: this.orderQuantity * parseInt(this.itemToShow.price)
         };
+
+        this.orderId++;
+        localStorage.setItem('orderId', this.orderId.toString());
         
         allOrders.push(newPurchase)
         localStorage.setItem("orders_" + loggedUser.username, JSON.stringify(allOrders));
