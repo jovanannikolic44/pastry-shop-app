@@ -1,9 +1,7 @@
 <body>
     <header class="notification-header">
         <nav class="header-nav-bar">
-            <a href="#"> <span class="fa fa-plus p-3"></span> </a>
-            <a href="user-profile"> <span class="fa fa-user p-3"> </span> </a>
-            <a href=""> <span class="fa fa-sign-out p-3"></span> </a>
+            <a href="show-items"> <span class="fa fa-home p-3"> </span> </a>
         </nav>
     </header>
 
@@ -21,8 +19,11 @@
                 <tr *ngIf="allNotifications.length == 0">
                     <td colspan="4"> NEMA OBAVESTENJA </td>
                 </tr>
-                <tr>
-                    
+                <tr *ngFor="let notification of showNotificationsOnThePage">
+                    <td> {{ notification.id }} </td>
+                    <td> {{ notification.items }} </td>
+                    <td> {{ notification.totalPrice }} </td>
+                    <td> {{ notification.acceptance }} </td>
                 </tr>
             </tbody>
         </table>

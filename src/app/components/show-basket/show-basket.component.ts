@@ -83,8 +83,10 @@ export class ShowBasketComponent implements OnInit {
 
       let loggedUser = JSON.parse(loggedUserString);
       let allRequestsString = localStorage.getItem("waitingRequests");
+      let allRequests = allRequestsString? JSON.parse(allRequestsString) : [];
       let nextId = 1;
-      if(allRequestsString == null) {
+      
+      if(allRequests.length == 0) {
         let newOrderRequest: OrderRequest = {
           id: nextId,
           username: loggedUser.username,
@@ -96,7 +98,6 @@ export class ShowBasketComponent implements OnInit {
         localStorage.setItem("waitingRequests", JSON.stringify([newOrderRequest]));
       }
       else {
-        let allRequests = JSON.parse(allRequestsString);
         nextId = allRequests[allRequests.length - 1].id + 1;
 
         let newOrderRequest: OrderRequest = {

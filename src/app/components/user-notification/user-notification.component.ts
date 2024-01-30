@@ -14,7 +14,18 @@ export class UserNotificationComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    let loggedUserString = localStorage.getItem("loggedInUser");
+
+    if(loggedUserString != null) {
+      let loggedUser = JSON.parse(loggedUserString);
+      
+      let allNotificationsString = localStorage.getItem("staffdecision_" + loggedUser.username);
+      if(allNotificationsString != null) {
+        this.allNotifications = JSON.parse(allNotificationsString);
+      }
+    }
+  }
 
   get showNotificationsOnThePage(): OrderRequest[] {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
