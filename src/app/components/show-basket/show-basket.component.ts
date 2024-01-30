@@ -29,8 +29,6 @@ export class ShowBasketComponent implements OnInit {
         for(let i = 0; i < this.allOrders.length; i++) {
           this.totalItemsPrice += this.allOrders[i].totalPrice;
         }
-
-        console.log(this.allOrders.length)
       }
     }
   }
@@ -76,13 +74,15 @@ export class ShowBasketComponent implements OnInit {
       let allRequestsString = localStorage.getItem("waitingRequests");
       let nextId = 1;
 
-      // convert allOrders to string, allOrders je niz basketa
       let ordersString = "";
+      console.log(this.allOrders)
       for(let i = 0; i < this.allOrders.length; i++) {
         if(i == this.allOrders.length - 1) {
-          ordersString = ordersString + this.allOrders[i].itemName;
+          ordersString = ordersString + this.allOrders[i].itemName + "[" + this.allOrders[i].quantity + "]";
         }
-        ordersString = ordersString + this.allOrders[i].itemName + "[" + this.allOrders[i].quantity + "], ";
+        else {
+          ordersString = ordersString + this.allOrders[i].itemName + "[" + this.allOrders[i].quantity + "], ";
+        }
       }
 
       if(allRequestsString == null) {
