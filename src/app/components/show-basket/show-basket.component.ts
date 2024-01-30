@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Basket } from '../../models/Basket';
+import { OrderRequest } from '../../models/OrderRequest';
 
 @Component({
   selector: 'app-show-basket',
@@ -69,6 +70,39 @@ export class ShowBasketComponent implements OnInit {
   }
 
   confirmOrder(): void {
-    // reset svega
+    // reset svega -> notifikacija nakon odobrenja
+    // niz svih porudzbina -> allOrders
+    let loggedUserString = localStorage.getItem("loggedInUser");
+    if(loggedUserString != null) {
+      let loggedUser = JSON.parse(loggedUserString);
+      let allRequestsString = localStorage.getItem("waitingRequests");
+      let nextId = 1;
+
+      if(allRequestsString == null) {
+        let newOrderRequest: OrderRequest = {
+          id: nextId,
+          username: loggedUser.username,
+          items: this.allOrders
+        };
+
+        localStorage.setItem("waitingRequests", JSON.stringify([newOrderRequest]));
+      }
+      else {
+        let allRequests = JSON.parse(allRequestsString);
+        nextId = allRequests[allRequests.length - 1].id + 1;
+
+        let newOrderRequest: OrderRequest = {
+          id: nextId,
+          username: loggedUser.username,
+          items: this.allOrders
+        };
+        
+        allRequests.push(newOrderRequest)
+        localStorage.setItem("waitingRequests", JSON.stringify(allRequests));
+      }
+
+      this.allOrders = [];
+      this.totalItemsPrice = 0;
+    }
   }
 }
