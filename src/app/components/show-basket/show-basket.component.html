@@ -17,10 +17,10 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngIf="allPurchases.length == 0">
+                <tr *ngIf="allOrders.length == 0">
                     <td colspan="4"> KORPA JE PRAZNA </td>
                 </tr>
-                <tr *ngFor="let purchase of allPurchases">
+                <tr *ngFor="let purchase of showOrdersOnThePage">
                     <td> {{ purchase.itemName }} </td>
                     <td> {{ purchase.quantity }} </td>
                     <td> {{ purchase.price }} </td>
@@ -40,7 +40,7 @@
                     <a class="page-link" (click)="goToPage(page)">{{ page }}</a>
                 </li>
                 <li class="page-item">
-                    <a class="page-link" (click)="nextPage()" [class.disabled]="currentPage * itemsPerPage >= allPurchases.length" aria-label="Next">
+                    <a class="page-link" (click)="nextPage()" [class.disabled]="currentPage * itemsPerPage >= allOrders.length" aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
                     </a>
                 </li>

@@ -9,7 +9,7 @@ import { Basket } from '../../models/Basket';
 })
 export class ShowBasketComponent implements OnInit {
 
-  allPurchases: Basket[] = [];
+  allOrders: Basket[] = [];
   totalItemsPrice: number = 0;
   currentPage: number = 1;
   itemsPerPage: number = 3;
@@ -20,26 +20,28 @@ export class ShowBasketComponent implements OnInit {
     let loggedUserString = localStorage.getItem("loggedInUser");
     if(loggedUserString != null) {
       let loggedUser = JSON.parse(loggedUserString);
-      let allPurchasesString = localStorage.getItem("purchases_" + loggedUser.username);
+      let allOrdersString = localStorage.getItem("orders_" + loggedUser.username);
 
-      if(allPurchasesString != null) {
-        this.allPurchases = JSON.parse(allPurchasesString);
+      if(allOrdersString != null) {
+        this.allOrders = JSON.parse(allOrdersString);
         
-        for(let i = 0; i < this.allPurchases.length; i++) {
-          this.totalItemsPrice += this.allPurchases[i].totalPrice;
+        for(let i = 0; i < this.allOrders.length; i++) {
+          this.totalItemsPrice += this.allOrders[i].totalPrice;
         }
+
+        console.log(this.allOrders.length)
       }
     }
   }
 
-  get showItemsOnThePage(): Basket[] {
+  get showOrdersOnThePage(): Basket[] {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
     const endIndex = startIndex + this.itemsPerPage;
-    return this.allPurchases.slice(startIndex, endIndex);
+    return this.allOrders.slice(startIndex, endIndex);
   }
 
   getAllPages(): number[] {
-    let totalPages = Math.ceil(this.allPurchases.length / this.itemsPerPage);
+    let totalPages = Math.ceil(this.allOrders.length / this.itemsPerPage);
     let pages: number[] = [];
 
     for (let i = 1; i <= totalPages; i++) {
@@ -59,7 +61,7 @@ export class ShowBasketComponent implements OnInit {
   }
 
   nextPage(): void {
-    let totalPages = Math.ceil(this.allPurchases.length / this.itemsPerPage);
+    let totalPages = Math.ceil(this.allOrders.length / this.itemsPerPage);
 
     if (this.currentPage < totalPages) {
       this.currentPage++;
