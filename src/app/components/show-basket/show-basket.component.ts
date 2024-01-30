@@ -70,12 +70,8 @@ export class ShowBasketComponent implements OnInit {
   confirmOrder(): void {
     let loggedUserString = localStorage.getItem("loggedInUser");
     if(loggedUserString != null) {
-      let loggedUser = JSON.parse(loggedUserString);
-      let allRequestsString = localStorage.getItem("waitingRequests");
-      let nextId = 1;
-
       let ordersString = "";
-      console.log(this.allOrders)
+
       for(let i = 0; i < this.allOrders.length; i++) {
         if(i == this.allOrders.length - 1) {
           ordersString = ordersString + this.allOrders[i].itemName + "[" + this.allOrders[i].quantity + "]";
@@ -85,6 +81,9 @@ export class ShowBasketComponent implements OnInit {
         }
       }
 
+      let loggedUser = JSON.parse(loggedUserString);
+      let allRequestsString = localStorage.getItem("waitingRequests");
+      let nextId = 1;
       if(allRequestsString == null) {
         let newOrderRequest: OrderRequest = {
           id: nextId,

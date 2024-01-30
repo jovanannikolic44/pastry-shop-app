@@ -1,20 +1,28 @@
 <body>
-    <header class="show-cake-header">
+    <header class="notification-header">
         <nav class="header-nav-bar">
-            <a href="show-basket"> <span class="fa fa-shopping-basket p-3"></span> </a>
-            <a href="user-notification"> <span class="fa fa-bell p-3"> </span> </a>
+            <a href="#"> <span class="fa fa-plus p-3"></span> </a>
             <a href="user-profile"> <span class="fa fa-user p-3"> </span> </a>
-            <a href="show-items"> <span class="fa fa-chevron-left p-3"> </span> </a>
             <a href=""> <span class="fa fa-sign-out p-3"></span> </a>
         </nav>
     </header>
 
     <div class="card">
         <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col"> Broj porudzbine </th>
+                    <th scope="col"> Sadrzaj </th>
+                    <th scope="col"> Cena </th>
+                    <th scope="col"> Izvrsenje </th>
+                </tr>
+            </thead>
             <tbody>
-                <tr *ngFor="let item of showItemsOnThePage">
-                    <td> <img src="{{ item.imageUrl }}" class="item-image"></td>
-                    <td> <a (click)="showDetails(item)" class="item-link"> {{ item.name }} </a> </td>
+                <tr *ngIf="allNotifications.length == 0">
+                    <td colspan="4"> NEMA OBAVESTENJA </td>
+                </tr>
+                <tr>
+                    
                 </tr>
             </tbody>
         </table>
@@ -30,7 +38,7 @@
                     <a class="page-link" (click)="goToPage(page)">{{ page }}</a>
                 </li>
                 <li class="page-item">
-                    <a class="page-link" (click)="nextPage()" [class.disabled]="currentPage * itemsPerPage >= allItems.length" aria-label="Next">
+                    <a class="page-link" (click)="nextPage()" [class.disabled]="currentPage * itemsPerPage >= allNotifications.length" aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
                     </a>
                 </li>
@@ -38,7 +46,7 @@
         </div>
     </div>
 
-    <footer class="show-cake-footer">
+    <footer class="notification-footer">
         <div class="contact-info">
             <p> TELEFON: 011/223-233 </p>
             <p> E-MAIL: slatki_zalogaji&#64;gmail.com </p>

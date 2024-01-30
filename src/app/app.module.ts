@@ -13,6 +13,7 @@ import { ItemDetailsComponent } from './components/item-details/item-details.com
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { ShowBasketComponent } from './components/show-basket/show-basket.component';
 import { StaffRequestsComponent } from './components/staff-requests/staff-requests.component';
+import { UserNotificationComponent } from './components/user-notification/user-notification.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { StaffRequestsComponent } from './components/staff-requests/staff-reques
     ItemDetailsComponent,
     UserProfileComponent,
     ShowBasketComponent,
-    StaffRequestsComponent
+    StaffRequestsComponent,
+    UserNotificationComponent
   ],
   imports: [
     BrowserModule,

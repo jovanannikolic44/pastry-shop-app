@@ -57,7 +57,18 @@ export class StaffRequestsComponent implements OnInit {
   }
 
   accept(request: OrderRequest): void {
-    request.acceptance = "accepted";
+    request.acceptance = "Prihvacen zahtev";
+
+    let allRequestsString = localStorage.getItem("staffdecision_" + request.username);
+    if(allRequestsString == null) {
+      localStorage.setItem("staffdecision_" + request.username, JSON.stringify([request]));
+    }
+    else {
+      let allRequests = JSON.parse(allRequestsString);
+      allRequests.push(request);
+      localStorage.setItem("staffdecision_" + request.username, JSON.stringify(allRequests));
+    }
+
     let indexToRemove = this.allRequests.indexOf(request);
     if(indexToRemove > -1) {
       this.allRequests.splice(indexToRemove, 1);
@@ -66,7 +77,18 @@ export class StaffRequestsComponent implements OnInit {
   }
 
   decline(request: OrderRequest): void {
-    request.acceptance = "declined";
+    request.acceptance = "Odbijen zahtev";
+    
+    let allRequestsString = localStorage.getItem("staffdecision_" + request.username);
+    if(allRequestsString == null) {
+      localStorage.setItem("staffdecision_" + request.username, JSON.stringify([request]));
+    }
+    else {
+      let allRequests = JSON.parse(allRequestsString);
+      allRequests.push(request);
+      localStorage.setItem("staffdecision_" + request.username, JSON.stringify(allRequests));
+    }
+    
     let indexToRemove = this.allRequests.indexOf(request);
     if(indexToRemove > -1) {
       this.allRequests.splice(indexToRemove, 1);
