@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { Router } from '@angular/router';
 import { Promotion } from '../../models/Promotion';
 
 @Component({
@@ -11,15 +10,10 @@ import { Promotion } from '../../models/Promotion';
 export class ShowPromotionsComponent implements OnInit {
   allPromotions: Promotion[] = [];
 
-  constructor(private router:Router) {}
+  constructor() {}
 
   ngOnInit(): void {
     let allPromotionsString = localStorage.getItem('promotions');
-    
-    if(allPromotionsString == null) {
-      return;
-    }
-
-    this.allPromotions = JSON.parse(allPromotionsString);
+    this.allPromotions = allPromotionsString? JSON.parse(allPromotionsString) : [];
   }
 }

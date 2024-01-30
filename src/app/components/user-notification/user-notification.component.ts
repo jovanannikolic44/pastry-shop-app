@@ -21,9 +21,7 @@ export class UserNotificationComponent implements OnInit {
       let loggedUser = JSON.parse(loggedUserString);
       
       let allNotificationsString = localStorage.getItem("staffdecision_" + loggedUser.username);
-      if(allNotificationsString != null) {
-        this.allNotifications = JSON.parse(allNotificationsString);
-      }
+      this.allNotifications = allNotificationsString? JSON.parse(allNotificationsString) : [];
     }
   }
 

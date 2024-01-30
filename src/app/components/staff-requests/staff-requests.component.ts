@@ -16,10 +16,7 @@ export class StaffRequestsComponent implements OnInit {
 
   ngOnInit(): void {
     let allRequestsString = localStorage.getItem("waitingRequests");
-
-    if(allRequestsString != null) {
-      this.allRequests = JSON.parse(allRequestsString);
-    }
+    this.allRequests = allRequestsString? JSON.parse(allRequestsString) : [];
   }
 
   get showRequestsOnThePage(): OrderRequest[] {
@@ -60,11 +57,12 @@ export class StaffRequestsComponent implements OnInit {
     request.acceptance = "Prihvacen zahtev";
 
     let allRequestsString = localStorage.getItem("staffdecision_" + request.username);
-    if(allRequestsString == null) {
+    let allRequests = allRequestsString? JSON.parse(allRequestsString) : [];
+
+    if(allRequests.length == 0) {
       localStorage.setItem("staffdecision_" + request.username, JSON.stringify([request]));
     }
     else {
-      let allRequests = JSON.parse(allRequestsString);
       allRequests.push(request);
       localStorage.setItem("staffdecision_" + request.username, JSON.stringify(allRequests));
     }
@@ -80,11 +78,12 @@ export class StaffRequestsComponent implements OnInit {
     request.acceptance = "Odbijen zahtev";
     
     let allRequestsString = localStorage.getItem("staffdecision_" + request.username);
-    if(allRequestsString == null) {
+    let allRequests = allRequestsString? JSON.parse(allRequestsString) : [];
+
+    if(allRequests.length == 0) {
       localStorage.setItem("staffdecision_" + request.username, JSON.stringify([request]));
     }
     else {
-      let allRequests = JSON.parse(allRequestsString);
       allRequests.push(request);
       localStorage.setItem("staffdecision_" + request.username, JSON.stringify(allRequests));
     }

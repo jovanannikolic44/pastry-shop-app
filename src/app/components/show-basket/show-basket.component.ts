@@ -24,10 +24,9 @@ export class ShowBasketComponent implements OnInit {
     if(loggedUserString != null) {
       let loggedUser = JSON.parse(loggedUserString);
       let allOrdersString = localStorage.getItem("orders_" + loggedUser.username);
+      this.allOrders = allOrdersString? JSON.parse(allOrdersString) : [];
 
-      if(allOrdersString != null) {
-        this.allOrders = JSON.parse(allOrdersString);
-        
+      if(this.allOrders.length != 0) {
         for(let i = 0; i < this.allOrders.length; i++) {
           this.totalItemsPrice += this.allOrders[i].totalPrice;
         }

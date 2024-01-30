@@ -14,8 +14,9 @@ export class ShowItemsComponent implements OnInit {
 
   ngOnInit(): void {
     let allPromotionsString = localStorage.getItem('promotions');
+    let allPromotions = allPromotionsString? JSON.parse(allPromotionsString) : [];
     
-    if(allPromotionsString == null) {
+    if(allPromotions.length == 0) {
       let promotions: Promotion[] = [
         {id: "1", name: "UZ TORTU, I KOLAC", description: "Uz kupljenu tortu na dva ili vise spratova dobija se gratis jedan kolac po izboru.", imageUrl: "../../../assets/promotion1.jpeg"},
         {id: "2", name: "POVOLJNIJE ZA MLADENCE", description: "Tokom ovog meseca traje popust za narucene mladenacke torte.", imageUrl: "../../../assets/promotion2.png"},
@@ -25,8 +26,9 @@ export class ShowItemsComponent implements OnInit {
     }
 
     let allCakesString = localStorage.getItem('cakes');
+    let allCakes = allCakesString? JSON.parse(allCakesString) : [];
     
-    if(allCakesString == null) {
+    if(allCakes.length == 0) {
       let cakes: Item[] = [
         {id: "1", name: "COKOLADNA TORTA", description: "Torta napravljena od najfinije cokolade.", price: "2000", composition: ["3 jaja", "6 kasika secera", "3 kasike ulja", "3 kasike mleka", "3 kasike kakaoa", "3 kasike brasna", "1/2 praska za pecivo"], type: "torta", imageUrl: "../../../assets/chocolate-cake.webp"},
         {id: "2", name: "VOCNA TORTA", description: "Osvezavajuca torta od raznolikog sezonskog voca.", price: "3000", composition: ["5 belanaca", "220g secera", "600ml slatke pavlake", "400g svezeg sezonskog voca", "1 kasika scera u prahu", "50gr badema"], type: "torta", imageUrl: "../../../assets/fruit-cake.jpg"},
@@ -39,8 +41,9 @@ export class ShowItemsComponent implements OnInit {
     }
 
     let allCookiesString = localStorage.getItem('cookies');
+    let allCookies = allCookiesString? JSON.parse(allCookiesString) : [];
     
-    if(allCookiesString == null) {
+    if(allCookies.length == 0) {
       let cookies: Item[] = [
         {id: "7", name: "BROWNIES", description: "Kolaci sa punim ukusom cokolade.", price: "400", composition: ["100gr margarina", "400gr cokolade", "4 jaja", "140gr secera", "150gr brasna", "150gr oraha", "1 kasicica cimeta"], type: "kolac", imageUrl: "../../../assets/promotion3.jpg"},
         {id: "8", name: "COOKIES", description: "Hrskavi kolacici sa mrvicama cokolade.", price: "250", composition: ["85gr maslaca", "1 jaje", "85gr secera", "1 kesica vanilinog secera", "150gr brasna", "100g cokolade", "1 kasicica soli", "1 kasicica praska za pecivo"], type: "kolac", imageUrl: "../../../assets/cookies.jpg"},

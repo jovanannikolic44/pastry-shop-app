@@ -29,9 +29,7 @@ export class ItemDetailsComponent implements OnInit {
       this.itemToShow = JSON.parse(itemToShowString);
       
       let allCommentsString = localStorage.getItem(this.itemToShow.id);
-      if(allCommentsString != null) {
-        this.allComments = JSON.parse(allCommentsString)
-      }
+      this.allComments = allCommentsString? JSON.parse(allCommentsString) : [];
     }
   }
 
@@ -62,8 +60,9 @@ export class ItemDetailsComponent implements OnInit {
       let loggedUser = JSON.parse(loggedUserString);
       
       let allOrdersString = localStorage.getItem("orders_" + loggedUser.username);
+      let allOrders = allOrdersString? JSON.parse(allOrdersString) : [];
 
-      if(allOrdersString == null) {
+      if(allOrders.length == 0) {
         let newPurchase: Basket = {
           id: this.orderId,
           itemName: this.itemToShow.name,
@@ -75,7 +74,6 @@ export class ItemDetailsComponent implements OnInit {
         localStorage.setItem("orders_" + loggedUser.username, JSON.stringify([newPurchase]));
       }
       else {
-        let allOrders = JSON.parse(allOrdersString);
         let newPurchase: Basket = {
           id: this.orderId,
           itemName: this.itemToShow.name,

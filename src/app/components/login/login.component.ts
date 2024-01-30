@@ -36,11 +36,12 @@ export class LoginComponent implements OnInit {
     }
 
     let allUsersString = localStorage.getItem('users');
-    if(allUsersString == null) {
+    let allUsers = allUsersString? JSON.parse(allUsersString) : [];
+
+    if(allUsers.length == 0) {
       return;
     }
-
-    let allUsers: User[] = JSON.parse(allUsersString);
+    
     let loggedInUser = null;
 
     for(let i = 0; i < allUsers.length; i++) {

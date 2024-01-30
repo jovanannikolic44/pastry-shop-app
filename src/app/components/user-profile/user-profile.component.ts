@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { Router } from '@angular/router';
 import { User } from '../../models/User';
 
 @Component({
@@ -30,9 +29,8 @@ export class UserProfileComponent implements OnInit {
     this.editField = false;
 
     let allUsersString = localStorage.getItem('users');
-    if(allUsersString != null) {
-      let allUsers: User[] = JSON.parse(allUsersString);
-
+    let allUsers = allUsersString? JSON.parse(allUsersString) : [];
+    if(allUsers.length != 0) {
       for(let i = 0; i < allUsers.length; i++) {
         if(this.loggedUser.username == allUsers[i].username) {
           allUsers[i].name = this.loggedUser.name;

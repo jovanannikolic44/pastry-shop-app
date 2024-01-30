@@ -19,9 +19,7 @@ export class ShowCakesComponent implements OnInit {
     let cookiesOrCakes = localStorage.getItem('cookiesOrCakes');
     if(cookiesOrCakes != null) {
       let allItemsString = localStorage.getItem(cookiesOrCakes);
-      if(allItemsString != null) {
-        this.allItems = JSON.parse(allItemsString);
-      }
+      this.allItems = allItemsString? JSON.parse(allItemsString) : [];
     }
   }
 
