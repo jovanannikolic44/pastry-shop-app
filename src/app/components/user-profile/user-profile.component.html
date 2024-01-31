@@ -1,7 +1,8 @@
 <body>
     <header class="show-user-profile-header">
         <nav class="header-nav-bar">
-            <a href="show-items"> <span class="fa fa-home p-3"></span> </a>
+            <a *ngIf="loggedUser.type=='kupac'" href="show-items"> <span class="fa fa-home p-3"></span> </a>
+            <a *ngIf="loggedUser.type=='zaposleni'" href="staff-requests"> <span class="fa fa-home p-3"></span> </a>
             <a href=""> <span class="fa fa-sign-out p-3"></span> </a>
         </nav>
     </header>

@@ -10,6 +10,7 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { ShowBasketComponent } from './components/show-basket/show-basket.component';
 import { StaffRequestsComponent } from './components/staff-requests/staff-requests.component';
 import { UserNotificationComponent } from './components/user-notification/user-notification.component';
+import { AddNewItemComponent } from './components/add-new-item/add-new-item.component';
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
@@ -21,7 +22,8 @@ const routes: Routes = [
   {path: 'user-profile', component: UserProfileComponent},
   {path: 'show-basket', component: ShowBasketComponent},
   {path: 'staff-requests', component: StaffRequestsComponent},
-  {path: 'user-notification', component: UserNotificationComponent}
+  {path: 'user-notification', component: UserNotificationComponent},
+  {path: 'add-new-item', component: AddNewItemComponent}
 ];
 
 @NgModule({

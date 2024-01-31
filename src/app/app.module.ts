@@ -14,6 +14,7 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { ShowBasketComponent } from './components/show-basket/show-basket.component';
 import { StaffRequestsComponent } from './components/staff-requests/staff-requests.component';
 import { UserNotificationComponent } from './components/user-notification/user-notification.component';
+import { AddNewItemComponent } from './components/add-new-item/add-new-item.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { UserNotificationComponent } from './components/user-notification/user-n
     UserProfileComponent,
     ShowBasketComponent,
     StaffRequestsComponent,
-    UserNotificationComponent
+    UserNotificationComponent,
+    AddNewItemComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,83 @@
+<body>
+    <header class="new-item-header">
+        <nav class="header-nav-bar">
+            <a href="staff-requests"> <span class="fa fa-chevron-left p-3"> </span> </a>
+            <a href=""> <span class="fa fa-sign-out p-3"></span> </a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <div class="new-item-panel">
+                <div class="new-item-panel-header">
+                    <h5> Dodavanje novog proizvoda </h5>
+                </div>
+                <div class="new-item-panel-body">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Naziv proizvoda" class="input-field" [(ngModel)]="name">
+                            <textarea name="description" placeholder="Opis proizvoda" class="description-textarea" rows = "5" cols = "40" [(ngModel)]="description"></textarea>
+                            <textarea name="composition" placeholder="Sastav proizvoda" class="description-textarea" rows = "5" cols = "40" [(ngModel)]="composition"></textarea>
+                            <input type="text" name="price" placeholder="Cena proizvoda" class="input-field" [(ngModel)]="price">
+                            <div class="radio-group">
+                                <input type="radio" name="cakes" class="radio-buttons" [(ngModel)]="showCakesOrCookies" value="cakes"> Torte
+                                <input type="radio" name="cookies" class="radio-buttons" [(ngModel)]="showCakesOrCookies" value="cookies"> Kolaci
+                            </div>
+
+                            <div *ngIf="showCakesOrCookies=='cakes' || showCakesOrCookies=='cookies'">
+                                <div id="show-items-carousel" class="carousel slide" data-bs-ride="carousel">
+                                    <div class="carousel-indicators">
+                                        <button type="button" data-bs-target="#show-items-carousel" data-bs-slide-to="0" class="active" aria-current="true"></button>
+                                        <button type="button" data-bs-target="#show-items-carousel" data-bs-slide-to="1"></button>
+                                        <button type="button" data-bs-target="#show-items-carousel" data-bs-slide-to="2"></button>
+                                        <button type="button" data-bs-target="#show-items-carousel" data-bs-slide-to="3"></button>
+                                    </div>
+                                    <div *ngIf="showCakesOrCookies=='cakes'">
+                                        <div class="carousel-inner">
+                                            <div class="carousel-item" *ngFor="let cake of predefinedCakesImages; let i = index" [class.active]="i == 0">
+                                                <div class="carousel-image">
+                                                    <img src="{{ cake }}" class="d-block w-100" alt="{{ cake }}" class="add-item-image" (click)="saveClickedImage(cake)">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div *ngIf="showCakesOrCookies=='cookies'">
+                                        <div class="carousel-inner">
+                                            <div class="carousel-item" *ngFor="let cookie of predefinedCookiesImages; let i = index" [class.active]="i == 0">
+                                                <div class="carousel-image">
+                                                    <img src="{{ cookie }}" class="d-block w-100" alt="{{ cookie }}" class="add-item-image" (click)="saveClickedImage(cookie)">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#show-items-carousel" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#show-items-carousel" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <button class="submit-button" (click)="add()"> Dodaj </button>
+                        </div>
+                    </form>
+                </div>
+                <span class="message-field">
+                    {{ message }}
+                </span>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="new-item-footer">
+        <div class="contact-info">
+            <p> TELEFON: 011/223-233 </p>
+            <p> E-MAIL: slatki_zalogaji&#64;gmail.com </p>
+            <p> BEOGRAD </p>
+        </div>
+    </footer>
+</body>
