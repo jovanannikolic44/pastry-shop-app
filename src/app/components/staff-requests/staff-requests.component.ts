@@ -59,13 +59,9 @@ export class StaffRequestsComponent implements OnInit {
     let allRequestsString = localStorage.getItem("staffdecision_" + request.username);
     let allRequests = allRequestsString? JSON.parse(allRequestsString) : [];
 
-    if(allRequests.length == 0) {
-      localStorage.setItem("staffdecision_" + request.username, JSON.stringify([request]));
-    }
-    else {
-      allRequests.push(request);
-      localStorage.setItem("staffdecision_" + request.username, JSON.stringify(allRequests));
-    }
+    allRequests.push(request);
+    localStorage.setItem("staffdecision_" + request.username, JSON.stringify(allRequests));
+    
 
     let indexToRemove = this.allRequests.indexOf(request);
     if(indexToRemove > -1) {
@@ -80,13 +76,9 @@ export class StaffRequestsComponent implements OnInit {
     let allRequestsString = localStorage.getItem("staffdecision_" + request.username);
     let allRequests = allRequestsString? JSON.parse(allRequestsString) : [];
 
-    if(allRequests.length == 0) {
-      localStorage.setItem("staffdecision_" + request.username, JSON.stringify([request]));
-    }
-    else {
-      allRequests.push(request);
-      localStorage.setItem("staffdecision_" + request.username, JSON.stringify(allRequests));
-    }
+    allRequests.push(request);
+    localStorage.setItem("staffdecision_" + request.username, JSON.stringify(allRequests));
+    
     
     let indexToRemove = this.allRequests.indexOf(request);
     if(indexToRemove > -1) {

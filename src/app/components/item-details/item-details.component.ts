@@ -68,35 +68,20 @@ export class ItemDetailsComponent implements OnInit {
       let allOrdersString = localStorage.getItem("orders_" + loggedUser.username);
       let allOrders = allOrdersString? JSON.parse(allOrdersString) : [];
 
-      if(allOrders.length == 0) {
-        let newPurchase: Basket = {
-          id: this.orderId,
-          itemName: this.itemToShow.name,
-          quantity: this.orderQuantity,
-          price: parseInt(this.itemToShow.price),
-          totalPrice: this.orderQuantity * parseInt(this.itemToShow.price)
-        };
+      let newPurchase: Basket = {
+        id: this.orderId,
+        itemName: this.itemToShow.name,
+        quantity: this.orderQuantity,
+        price: parseInt(this.itemToShow.price),
+        totalPrice: this.orderQuantity * parseInt(this.itemToShow.price)
+      };
 
-        this.orderId++;
-        localStorage.setItem('orderId', this.orderId.toString());
+      allOrders.push(newPurchase)
+      localStorage.setItem("orders_" + loggedUser.username, JSON.stringify(allOrders));
 
-        localStorage.setItem("orders_" + loggedUser.username, JSON.stringify([newPurchase]));
-      }
-      else {
-        let newPurchase: Basket = {
-          id: this.orderId,
-          itemName: this.itemToShow.name,
-          quantity: this.orderQuantity,
-          price: parseInt(this.itemToShow.price),
-          totalPrice: this.orderQuantity * parseInt(this.itemToShow.price)
-        };
+      this.orderId++;
+      localStorage.setItem('orderId', this.orderId.toString());
 
-        this.orderId++;
-        localStorage.setItem('orderId', this.orderId.toString());
-        
-        allOrders.push(newPurchase)
-        localStorage.setItem("orders_" + loggedUser.username, JSON.stringify(allOrders));
-      }
       this.orderQuantity = 1;
       this.message = "Narudzbina je evidentirana. Mozete je naci u korpi.";
     }

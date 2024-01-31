@@ -88,35 +88,19 @@ export class ShowBasketComponent implements OnInit {
       let allRequestsString = localStorage.getItem("waitingRequests");
       let allRequests = allRequestsString? JSON.parse(allRequestsString) : [];
 
-      if(allRequests.length == 0) {
-        let newOrderRequest: OrderRequest = {
-          id: this.requestId,
-          username: loggedUser.username,
-          items: ordersString,
-          totalPrice: this.totalItemsPrice,
-          acceptance: "requested"
-        };
+      let newOrderRequest: OrderRequest = {
+        id: this.requestId,
+        username: loggedUser.username,
+        items: ordersString,
+        totalPrice: this.totalItemsPrice,
+        acceptance: "requested"
+      };
 
-        this.requestId++;
-        localStorage.setItem('requestId', this.requestId.toString());
+      allRequests.push(newOrderRequest)
+      localStorage.setItem("waitingRequests", JSON.stringify(allRequests));
 
-        localStorage.setItem("waitingRequests", JSON.stringify([newOrderRequest]));
-      }
-      else {
-        let newOrderRequest: OrderRequest = {
-          id: this.requestId,
-          username: loggedUser.username,
-          items: ordersString,
-          totalPrice: this.totalItemsPrice,
-          acceptance: "requested"
-        };
-
-        this.requestId++;
-        localStorage.setItem('requestId', this.requestId.toString());
-        
-        allRequests.push(newOrderRequest)
-        localStorage.setItem("waitingRequests", JSON.stringify(allRequests));
-      }
+      this.requestId++;
+      localStorage.setItem('requestId', this.requestId.toString());
 
       this.allOrders = [];
       this.totalItemsPrice = 0;
