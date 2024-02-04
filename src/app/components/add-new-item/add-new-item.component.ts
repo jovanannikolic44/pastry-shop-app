@@ -23,11 +23,7 @@ export class AddNewItemComponent implements OnInit {
 
   constructor() {}
 
-  // izabere tip koji dodaje -> cakes -> show predefined cakes
-  // izabere cookies -> show predefined cookies 
-
   ngOnInit(): void {
-    // predefined images
     this.predefinedCakesImages = [
       "../../../assets/predefinedCake1.jpg",
       "../../../assets/predefinedCake2.jpg",

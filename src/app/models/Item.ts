@@ -1,5 +1,3 @@
-import { Comments } from "./Comments";
-
 export interface Item {
     id: string;
     name: string;
