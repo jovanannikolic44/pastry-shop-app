@@ -36,15 +36,16 @@ export class LoginComponent implements OnInit {
     }
 
     let allUsersString = localStorage.getItem('users');
-    if(allUsersString == null) {
+    let allUsers = allUsersString? JSON.parse(allUsersString) : [];
+
+    if(allUsers.length == 0) {
       return;
     }
-
-    let allUsers: User[] = JSON.parse(allUsersString);
+    
     let loggedInUser = null;
 
     for(let i = 0; i < allUsers.length; i++) {
-      if(allUsers[i].username == this.username) {
+      if(allUsers[i].username == this.username && allUsers[i].password == this.password) {
         loggedInUser = allUsers[i];
         this.message = "";
         break;
@@ -57,5 +58,12 @@ export class LoginComponent implements OnInit {
     }
 
     localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
+
+    if(loggedInUser.type == "kupac") {
+      this.router.navigate(['/show-items']);
+    }
+    else if(loggedInUser.type == "zaposleni") {
+      this.router.navigate(['/staff-requests']);
+    }
   }
 }

@@ -1,0 +1,46 @@
+<body>
+    <header class="show-user-profile-header">
+        <nav class="header-nav-bar">
+            <a *ngIf="loggedUser.type=='kupac'" href="show-items"> <span class="fa fa-home p-3"></span> </a>
+            <a *ngIf="loggedUser.type=='zaposleni'" href="staff-requests"> <span class="fa fa-home p-3"></span> </a>
+            <a href=""> <span class="fa fa-sign-out p-3"></span> </a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <div class="user-profile-panel">
+                <div class="user-profile-header">
+                    <h5> Pregled i izmena podataka </h5>
+                </div>
+                <div class="user-profile-body">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" name="name" class="input-field" [(ngModel)]="loggedUser.name" [disabled]="!editField">
+                            <input type="text" name="lastName" class="input-field" [(ngModel)]="loggedUser.lastName" [disabled]="!editField">
+                            <input type="text" name="address" class="input-field" [(ngModel)]="loggedUser.address" [disabled]="!editField">
+                            <input type="text" name="phoneNumber" class="input-field" [(ngModel)]="loggedUser.phoneNumber" [disabled]="!editField">
+                            <input type="text" name="username" class="input-field" [(ngModel)]="loggedUser.username" disabled>
+                            <input type="password" name="password" class="input-field" [(ngModel)]="loggedUser.password" [disabled]="!editField">
+                        </div>
+                        <button class="submit-button" (click)="edit()" *ngIf="editField == false"> Izmeni </button>
+                        <button class="submit-button" (click)="save()" *ngIf="editField == true"> Sacuvaj </button>
+                        <button class="submit-button" (click)="cancel()" *ngIf="editField == true"> Odustani </button>
+                    </form>
+                </div>
+                <span class="message-field">
+                    {{ message }}
+                </span>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="show-user-profile-footer">
+        <div class="contact-info">
+            <p> TELEFON: 011/223-233 </p>
+            <p> E-MAIL: slatki_zalogaji&#64;gmail.com </p>
+            <p> BEOGRAD </p>
+        </div>
+    </footer>
+</body>

@@ -1,0 +1,57 @@
+<body>
+    <header class="notification-header">
+        <nav class="header-nav-bar">
+            <a href="show-items"> <span class="fa fa-home p-3"> </span> </a>
+        </nav>
+    </header>
+
+    <div class="card">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col"> Broj porudzbine </th>
+                    <th scope="col"> Sadrzaj </th>
+                    <th scope="col"> Ukupna cena </th>
+                    <th scope="col"> Izvrsenje </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngIf="allNotifications.length == 0">
+                    <td colspan="4"> NEMA OBAVESTENJA </td>
+                </tr>
+                <tr *ngFor="let notification of showNotificationsOnThePage">
+                    <td> {{ notification.id }} </td>
+                    <td> {{ notification.items }} </td>
+                    <td> {{ notification.totalPrice }} </td>
+                    <td> {{ notification.acceptance }} </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div>
+            <ul class="pagination justify-content-center">
+                <li class="page-item">
+                    <a class="page-link" (click)="previousPage()" [class.disabled]="currentPage == 1" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="page-item" *ngFor="let page of getAllPages()">
+                    <a class="page-link" (click)="goToPage(page)">{{ page }}</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" (click)="nextPage()" [class.disabled]="currentPage * itemsPerPage >= allNotifications.length" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <footer class="notification-footer">
+        <div class="contact-info">
+            <p> TELEFON: 011/223-233 </p>
+            <p> E-MAIL: slatki_zalogaji&#64;gmail.com </p>
+            <p> BEOGRAD </p>
+        </div>
+    </footer>
+</body>

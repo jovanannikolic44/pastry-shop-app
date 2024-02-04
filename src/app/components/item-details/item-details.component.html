@@ -1,0 +1,100 @@
+<body>
+    <header class="show-item-header">
+        <nav class="header-nav-bar">
+            <a href="show-basket"> <span class="fa fa-shopping-basket p-3"></span> </a>
+            <a href="user-notification"> <span class="fa fa-bell p-3"> </span> </a>
+            <a href="user-profile"> <span class="fa fa-user p-3"> </span> </a>
+            <a href="show-cakes"> <span class="fa fa-chevron-left p-3"> </span> </a>
+            <a href=""> <span class="fa fa-sign-out p-3"></span> </a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <table class="item-table">
+            <tbody>
+                <tr>
+                    <td> <img src="{{ itemToShow.imageUrl }}" class="item-image" alt="{{ itemToShow.name }}"> </td>
+                    <td> <h2> {{ itemToShow.name }} </h2> </td>
+                </tr>
+                <tr>
+                    <td> <h5> OPIS: </h5> </td>
+                    <td> {{ itemToShow.description }} </td>
+                </tr>
+                <tr>
+                    <td> <h5> CENA: </h5> </td>
+                    <td> {{ itemToShow.price }} </td>
+                </tr>
+                <tr>
+                    <td> <h5> SASTOJCI: </h5> </td>
+                    <td></td>
+                </tr>
+                <tr *ngFor="let ingredients of itemToShow.composition">
+                    <td></td>
+                    <td> {{ ingredients }} </td>
+                </tr>
+            </tbody>
+        </table>
+        <hr/>
+
+        <div class="row">
+            <div class="col-md-6">
+                <form>
+                    <table class="item-table-comments">
+                        <tbody>
+                            <tr>
+                                <td> <h5> KOMENTARI: </h5> </td>
+                            </tr>
+                            <tr *ngIf="allComments.length == 0">
+                                <td class="no-comments"> NEMA KOMENTARA </td>
+                            </tr>
+                            <tr *ngIf="allComments.length > 0">
+                                <div *ngFor="let itemComment of allComments">
+                                    <td> <h5> {{ itemComment.username }}: </h5> </td>
+                                    <td> {{ itemComment.comment }} </td>
+                                </div>
+                            </tr>
+                            <tr>
+                                <td><h5> OSTAVITE KOMENTAR: </h5></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <textarea placeholder="Komentar" name="comment" class="comment-textarea" rows = "5" cols = "60" [(ngModel)]="inputComment"></textarea>
+                            </tr>
+                            <tr>
+                                <button type="submit" class="submit-button" (click)="saveComment()"> Sacuvaj </button>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <form>
+                    <table class="item-table-comments">
+                        <tbody>
+                            <tr>
+                                <td> <h5> KOLICINA: </h5> </td>
+                            </tr>
+                            <tr>
+                                <td> <input type="text" name="order" class="order-input" [(ngModel)]="orderQuantity"> </td>
+                            </tr>
+                            <tr>
+                                <td> <button type="submit" class="submit-button" (click)="orderItem()"> Naruci </button> </td>
+                            </tr>
+                            <tr>
+                                <td> <span class="message-field"> {{ message }} </span> </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer class="show-item-footer">
+        <div class="contact-info">
+            <p> TELEFON: 011/223-233 </p>
+            <p> E-MAIL: slatki_zalogaji&#64;gmail.com </p>
+            <p> BEOGRAD </p>
+        </div>
+    </footer>
+</body>

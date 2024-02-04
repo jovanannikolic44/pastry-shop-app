@@ -1,0 +1,55 @@
+<body>
+    <header class="show-items-header">
+        <nav class="header-nav-bar">
+            <a href="show-basket"> <span class="fa fa-shopping-basket p-3"></span> </a>
+            <a href="user-notification"> <span class="fa fa-bell p-3"> </span> </a>
+            <a href="user-profile"> <span class="fa fa-user p-3"> </span> </a>
+            <a href=""> <span class="fa fa-sign-out p-3"></span> </a>
+        </nav>
+    </header>
+
+    <div id="show-items-carousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#show-items-carousel" data-bs-slide-to="0" class="active" aria-current="true"></button>
+            <button type="button" data-bs-target="#show-items-carousel" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#show-items-carousel" data-bs-slide-to="2"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                    <img src="../../../assets/show-items-cake.webp" class="d-block w-100" alt="Cake">
+                    <div class="carousel-caption d-none d-md-block">
+                        <button class="show-items-button" (click)="showAllCakes()"> SVE TORTE </button>
+                    </div>
+            </div>
+            <div class="carousel-item">
+                <img src="../../../assets/show-items-cupcakes.jpeg" class="d-block w-100" alt="Cupcake">
+                <div class="carousel-caption d-none d-md-block">
+                    <button class="show-items-button" (click)="showAllCookies()"> SVI KOLACI </button>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="../../../assets/show-items-promotion.jpg" class="d-block w-100" alt="Promotion">
+                <div class="carousel-caption d-none d-md-block">
+                    <button class="show-items-button" (click)="showAllPromotions()"> PROMOCIJE </button>
+                </div>
+            </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#show-items-carousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#show-items-carousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <footer class="show-items-footer">
+        <div class="contact-info">
+            <p> TELEFON: 011/223-233 </p>
+            <p> E-MAIL: slatki_zalogaji&#64;gmail.com </p>
+            <p> BEOGRAD </p>
+        </div>
+    </footer>
+</body>

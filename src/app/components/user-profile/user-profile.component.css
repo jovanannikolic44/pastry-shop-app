@@ -1,0 +1,79 @@
+body {
+    background-image: none;
+    background-color: #F0ECE2;
+}
+
+.show-user-profile-header {
+    background-color: #C7B198;
+    padding: 10px;
+}
+
+.header-nav-bar {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.header-nav-bar a {
+    color: #FFFFFF;
+    text-decoration: none;
+    margin-left: 15px;
+}
+
+.show-user-profile-footer {
+    background-color: #C7B198;
+    padding: 10px;
+    text-align: center;
+    color: #FFFFFF;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.contact-info {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.user-profile-panel {
+    min-height: 450px;
+    width: 700px;
+    box-shadow: 20px 20px 80px rgb(0, 0, 0);
+    border-radius: 12px;
+    margin-top: 20px;
+    margin-left: 300px;
+    background-color: #F0ECE2;
+}
+
+.user-profile-header {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.submit-button {
+    border-radius: 10px;
+    width: 150px;
+    height: 40px;
+    background-color: #402A23;
+    border-color: #402A23;
+    margin-left: 30px;
+    color: white;
+    margin-top: 10px;
+}
+
+.submit-button:hover {
+    background-color: #000000;
+    border: #000000;
+}
+
+.input-field {
+    border-radius: 5px;
+    width: 400px;
+    padding: 5px;
+    margin-bottom: 15px;
+}
+
+.message-field {
+    color: red;
+    font-weight: bold;
+    font-size: 18px;
+}

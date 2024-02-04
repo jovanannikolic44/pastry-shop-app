@@ -1,4 +1,4 @@
-<main>
+<body>
     <div class="container">
         <div class="row">
             <div class="login-panel">
@@ -19,7 +19,7 @@
                                 <input type="password" name="password" placeholder="Lozinka" class="input-field" [(ngModel)]="password">
                             </div>
                         </div>
-                        <button class="submit-button" (click)="logIn()"> Prijavi se </button>
+                        <button type="submit" class="submit-button" (click)="logIn()"> Prijavi se </button>
                         <div class="pt-4 text-muted"> Nemate nalog? 
                             <a class="registration-link" href="/registration"> Registrujte se </a>
                         </div>
@@ -31,4 +31,4 @@
             </div>
         </div>
     </div>
-</main>
+</body>
