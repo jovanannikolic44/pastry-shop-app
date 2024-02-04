@@ -28,8 +28,6 @@ export class LoginComponent implements OnInit {
   }
 
   logIn(): void {
-    console.log("logIn method started");
-    
     if(this.username == "" || this.password == "" || this.username == null || this.password == null) {
       this.message = "Popute sva prazna polja.";
       return;
